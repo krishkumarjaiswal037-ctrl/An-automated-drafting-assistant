@@ -1,0 +1,12 @@
+{
+  "name": "an-automated-drafting-assistant",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A basic project website for An automated drafting assistant.",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

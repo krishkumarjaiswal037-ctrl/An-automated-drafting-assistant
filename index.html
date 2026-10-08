@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Project website for An automated drafting assistant."
+    />
+    <title>An automated drafting assistant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/styles.css" />
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="site-header">
+      <a class="site-name" href="#home">An automated drafting assistant</a>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="primary-navigation"
+      >
+        <span class="menu-toggle__label">Menu</span>
+      </button>
+
+      <nav class="primary-navigation" id="primary-navigation" aria-label="Main navigation">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#robot">Robot</a></li>
+          <li><a href="#problem-statement">Problem Statement</a></li>
+          <li><a href="#solution">Solution</a></li>
+          <li><a href="#team-members">Team Members</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <section class="hero section-wrap" id="home" aria-labelledby="hero-title">
+        <div class="hero__copy">
+          <p class="eyebrow">Project overview</p>
+          <h1 id="hero-title">An automated drafting assistant</h1>
+          <p class="hero__intro">Add a project introduction here.</p>
+          <div class="hero__links">
+            <a href="#problem-statement">Read the problem statement</a>
+            <a href="#team-members">Meet the team</a>
+          </div>
+        </div>
+        <div class="hero__placeholder" aria-label="Project visual placeholder">
+          <span>Project image or demonstration placeholder</span>
+        </div>
+      </section>
+
+      <section class="content-section section-wrap" id="robot" aria-labelledby="robot-title">
+        <p class="eyebrow">01 · Project</p>
+        <h2 id="robot-title">Robot</h2>
+        <p class="placeholder-copy">
+          Add project-specific robot, hardware, and joint-configuration details here when ready.
+        </p>
+      </section>
+
+      <section
+        class="content-section section-wrap"
+        id="problem-statement"
+        aria-labelledby="problem-title"
+      >
+        <p class="eyebrow">02 · Challenge</p>
+        <h2 id="problem-title">Problem Statement</h2>
+        <p class="problem-statement">
+          An automated drafting assistant is needed to reproduce patterns on a flat surface. The
+          system must translate planned motion into coordinated movement of a robotic arm and
+          produce a drawing with sufficient precision to make the intended shape recognisable. The
+          challenge lies in achieving smooth, controlled and repeatable movement while working
+          within the mechanical limitations of the arm, i.e., only using Revolute Joints. The
+          Drafting assistant is atleast required to make basic shapes like a perfect circle, square
+          and a triangle
+        </p>
+      </section>
+
+      <section class="content-section section-wrap" id="solution" aria-labelledby="solution-title">
+        <p class="eyebrow">03 · Solution</p>
+        <h2 id="solution-title">Solution</h2>
+        <p class="placeholder-copy" data-solution-placeholder>
+          Awaiting your solution statement. It will be added using the information you provide.
+        </p>
+      </section>
+
+      <section
+        class="content-section section-wrap"
+        id="team-members"
+        aria-labelledby="team-title"
+      >
+        <p class="eyebrow">04 · People</p>
+        <h2 id="team-title">Team Members</h2>
+        <p class="section-intro">
+          Nine photo placeholders are ready. Member details and pictures will be added when you
+          provide them.
+        </p>
+        <ol class="member-list" aria-label="Team member photo placeholders">
+          <li class="member-card">
+            <div class="photo-placeholder" role="img" aria-label="Photo placeholder for team member 1">
+              <span>Photo placeholder</span>
+            </div>
+            <p>Member 01</p>
+          </li>
+          <li class="member-card">
+            <div class="photo-placeholder" role="img" aria-label="Photo placeholder for team member 2">
+              <span>Photo placeholder</span>
+            </div>
+            <p>Member 02</p>
+          </li>
+          <li class="member-card">
+            <div class="photo-placeholder" role="img" aria-label="Photo placeholder for team member 3">
+              <span>Photo placeholder</span>
+            </div>
+            <p>Member 03</p>
+          </li>
+          <li class="member-card">
+            <div class="photo-placeholder" role="img" aria-label="Photo placeholder for team member 4">
+              <span>Photo placeholder</span>
+            </div>
+            <p>Member 04</p>
+          </li>
+          <li class="member-card">
+            <div class="photo-placeholder" role="img" aria-label="Photo placeholder for team member 5">
+              <span>Photo placeholder</span>
+            </div>
+            <p>Member 05</p>
+          </li>
+          <li class="member-card">
+            <div class="photo-placeholder" role="img" aria-label="Photo placeholder for team member 6">
+              <span>Photo placeholder</span>
+            </div>
+            <p>Member 06</p>
+          </li>
+          <li class="member-card">
+            <div class="photo-placeholder" role="img" aria-label="Photo placeholder for team member 7">
+              <span>Photo placeholder</span>
+            </div>
+            <p>Member 07</p>
+          </li>
+          <li class="member-card">
+            <div class="photo-placeholder" role="img" aria-label="Photo placeholder for team member 8">
+              <span>Photo placeholder</span>
+            </div>
+            <p>Member 08</p>
+          </li>
+          <li class="member-card">
+            <div class="photo-placeholder" role="img" aria-label="Photo placeholder for team member 9">
+              <span>Photo placeholder</span>
+            </div>
+            <p>Member 09</p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="content-section section-wrap" id="gallery" aria-labelledby="gallery-title">
+        <p class="eyebrow">05 · Project media</p>
+        <h2 id="gallery-title">Gallery</h2>
+        <p class="section-intro">Add project photos, drawings, and demonstrations here later.</p>
+        <div class="gallery-list" aria-label="Gallery image placeholders">
+          <div class="gallery-placeholder" role="img" aria-label="Gallery image placeholder 1">
+            Image placeholder
+          </div>
+          <div class="gallery-placeholder" role="img" aria-label="Gallery image placeholder 2">
+            Image placeholder
+          </div>
+          <div class="gallery-placeholder" role="img" aria-label="Gallery image placeholder 3">
+            Image placeholder
+          </div>
+          <div class="gallery-placeholder" role="img" aria-label="Gallery image placeholder 4">
+            Image placeholder
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer section-wrap">
+      <p>An automated drafting assistant</p>
+    </footer>
+  </body>
+</html>

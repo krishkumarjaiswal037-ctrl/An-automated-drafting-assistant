@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title">
+  <title id="title">Drafting assistant mark placeholder</title>
+  <g fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="64" cy="64" r="44" />
+    <path d="M64 20v88M20 64h88" />
+    <path d="m64 37 23 40H41z" />
+    <path d="M41 88h46v12H41z" />
+  </g>
+</svg>
