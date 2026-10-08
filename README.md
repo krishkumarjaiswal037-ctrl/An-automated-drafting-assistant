@@ -22,4 +22,4 @@ Inter is currently loaded from Google Fonts as a temporary choice. In `index.htm
 
 ## Theme
 
-No theme has been selected. The styles focus on section structure, responsive layout, keyboard navigation, and readable placeholders; color and visual-brand choices are left for a later decision.
+No final theme has been selected. The current stylesheet is an interim, neutral presentation layer so the site is ready to show; its grouped CSS custom properties near the top of `src/styles.css` make its temporary colors, surfaces, borders, and spacing easy to change later. Choose a final visual direction separately when ready.
