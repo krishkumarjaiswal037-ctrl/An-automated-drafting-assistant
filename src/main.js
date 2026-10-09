@@ -19,6 +19,8 @@ if (menuButton && navigation) {
 }
 
 const gallery = document.querySelector(".gallery-list");
+const lightbox = document.querySelector(".lightbox");
+const lightboxImage = lightbox?.querySelector(".lightbox__image");
 
 if (gallery) {
   const slides = [...gallery.querySelectorAll(".gallery-placeholder")];
@@ -46,6 +48,7 @@ if (gallery) {
     if (
       slides.length < 2 ||
       reducedMotion.matches ||
+      lightbox?.open ||
       document.hidden ||
       gallery.matches(":hover") ||
       gallery.contains(document.activeElement)
@@ -82,5 +85,54 @@ if (gallery) {
     gallery.addEventListener("focusout", startSlideshow);
     document.addEventListener("visibilitychange", startSlideshow);
     reducedMotion.addEventListener("change", resetSlideshow);
+
+    if (lightbox && lightboxImage) {
+      const galleryImages = [...gallery.querySelectorAll("img")];
+      const openLightbox = (image) => {
+        lightboxImage.src = image.currentSrc || image.src;
+        lightboxImage.alt = image.alt;
+        stopSlideshow();
+        lightbox.showModal();
+      };
+
+      galleryImages.forEach((image) => {
+        image.tabIndex = 0;
+        image.setAttribute("role", "button");
+        image.setAttribute(
+          "aria-label",
+          image.alt ? `Open image: ${image.alt}` : "Open gallery image"
+        );
+      });
+
+      gallery.addEventListener("click", (event) => {
+        if (!(event.target instanceof Element)) return;
+        const clickedImage = event.target.closest("img");
+        if (clickedImage && gallery.contains(clickedImage)) openLightbox(clickedImage);
+      });
+
+      gallery.addEventListener("keydown", (event) => {
+        if (
+          event.target instanceof HTMLImageElement &&
+          (event.key === "Enter" || event.key === " ")
+        ) {
+          event.preventDefault();
+          openLightbox(event.target);
+        }
+      });
+
+      lightbox.querySelector(".lightbox__close")?.addEventListener("click", () => {
+        lightbox.close();
+      });
+
+      lightbox.addEventListener("click", (event) => {
+        if (event.target === lightbox) lightbox.close();
+      });
+
+      lightbox.addEventListener("close", () => {
+        lightboxImage.removeAttribute("src");
+        lightboxImage.alt = "";
+        startSlideshow();
+      });
+    }
   }
 }
