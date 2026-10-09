@@ -310,6 +310,54 @@ a {
   background: linear-gradient(140deg, var(--surface-soft), var(--surface));
 }
 
+.team-name-marquee {
+  width: 100%;
+  overflow: hidden;
+}
+
+.team-name-marquee__text {
+  width: max-content;
+  white-space: nowrap;
+  animation: team-name-slide 16s linear infinite;
+  will-change: transform;
+}
+
+.team-name-marquee:hover .team-name-marquee__text,
+.team-name-marquee:focus-within .team-name-marquee__text {
+  animation-play-state: paused;
+}
+
+@keyframes team-name-slide {
+  from {
+    transform: translate3d(100%, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+.gallery-list[data-carousel="true"] {
+  position: relative;
+  display: block;
+  min-height: 12rem;
+  aspect-ratio: 16 / 9;
+}
+
+.gallery-list[data-carousel="true"] > .gallery-placeholder {
+  position: absolute;
+  inset: 0;
+  min-height: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 500ms ease;
+}
+
+.gallery-list[data-carousel="true"] > .gallery-placeholder.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
 .site-footer {
   padding-block: 1.75rem 2.5rem;
   color: var(--muted);
@@ -379,11 +427,37 @@ a {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.75rem;
   }
+
+  .team-name-marquee__text {
+    animation-duration: 20s;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .team-name-marquee__text {
+    width: auto;
+    white-space: normal;
+    animation: none;
+    transform: none;
+  }
+
+  .gallery-list[data-carousel="true"] {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+    gap: 1rem;
+    aspect-ratio: auto;
+  }
+
+  .gallery-list[data-carousel="true"] > .gallery-placeholder {
+    position: static;
+    min-height: 12rem;
+    opacity: 1;
+    visibility: visible;
+    transition: none;
   }
 
   *,

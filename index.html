@@ -101,7 +101,9 @@
         aria-labelledby="team-title"
       >
         <p class="eyebrow">04 · People</p>
-        <h2 id="team-title">Team Members</h2>
+        <div class="team-name-marquee">
+          <h2 class="team-name-marquee__text" id="team-title">Team Members</h2>
+        </div>
         <p class="section-intro">
           Nine photo placeholders are ready. Member details and pictures will be added when you
           provide them.
@@ -168,7 +170,7 @@
         <p class="eyebrow">05 · Project media</p>
         <h2 id="gallery-title">Gallery</h2>
         <p class="section-intro">Add project photos, drawings, and demonstrations here later.</p>
-        <div class="gallery-list" aria-label="Gallery image placeholders">
+        <div class="gallery-list" role="group" aria-label="Gallery image placeholders">
           <div class="gallery-placeholder" role="img" aria-label="Gallery image placeholder 1">
             Image placeholder
           </div>

@@ -17,3 +17,70 @@ if (menuButton && navigation) {
     }
   });
 }
+
+const gallery = document.querySelector(".gallery-list");
+
+if (gallery) {
+  const slides = [...gallery.querySelectorAll(".gallery-placeholder")];
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let currentIndex = 0;
+  let timer = null;
+
+  const stopSlideshow = () => {
+    window.clearInterval(timer);
+    timer = null;
+  };
+
+  const showSlide = (index) => {
+    slides[currentIndex]?.classList.remove("is-active");
+    currentIndex = index;
+    slides.forEach((slide, slideIndex) => {
+      const isActive = slideIndex === currentIndex;
+      slide.classList.toggle("is-active", isActive);
+      slide.setAttribute("aria-hidden", String(!isActive));
+    });
+  };
+
+  const startSlideshow = () => {
+    stopSlideshow();
+    if (
+      slides.length < 2 ||
+      reducedMotion.matches ||
+      document.hidden ||
+      gallery.matches(":hover") ||
+      gallery.contains(document.activeElement)
+    ) {
+      return;
+    }
+
+    timer = window.setInterval(() => {
+      showSlide((currentIndex + 1) % slides.length);
+    }, 3000);
+  };
+
+  const resetSlideshow = () => {
+    stopSlideshow();
+    gallery.removeAttribute("data-carousel");
+    slides.forEach((slide) => {
+      slide.classList.remove("is-active");
+      slide.removeAttribute("aria-hidden");
+    });
+
+    if (slides.length > 1 && !reducedMotion.matches) {
+      gallery.dataset.carousel = "true";
+      currentIndex = 0;
+      showSlide(currentIndex);
+      startSlideshow();
+    }
+  };
+
+  if (slides.length) {
+    resetSlideshow();
+    gallery.addEventListener("mouseenter", stopSlideshow);
+    gallery.addEventListener("mouseleave", startSlideshow);
+    gallery.addEventListener("focusin", stopSlideshow);
+    gallery.addEventListener("focusout", startSlideshow);
+    document.addEventListener("visibilitychange", startSlideshow);
+    reducedMotion.addEventListener("change", resetSlideshow);
+  }
+}
